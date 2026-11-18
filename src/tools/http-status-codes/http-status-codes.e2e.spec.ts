@@ -1,0 +1,12 @@
+import { expect, test } from '@playwright/test';
+
+test.describe('Tool - Http status codes', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/http-status-codes');
+  });
+
+  test('Has correct title', async ({ page }) => {
+    await expect(page.getByRole('heading', { level: 1, name: 'HTTP status codes', exact: true })).toBeVisible();
+    await expect(page).toHaveTitle('TAMES - TOOLS');
+  });
+});
